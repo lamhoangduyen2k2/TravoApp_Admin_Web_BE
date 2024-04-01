@@ -10,10 +10,10 @@ export class TokenService {
 
     //Create accessToken
     accessToken = sign({ _id: userId }, process.env.SECRET_KEY, {
-      expiresIn: "1800s",
+      expiresIn: "86400s",
     });
 
-    const expiredAccess: number = Date.now() + 1800 * 1000;
+    const expiredAccess: number = Date.now() + 86400 * 1000;
 
     return { accessToken, expiredAccess };
   };

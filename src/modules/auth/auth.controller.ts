@@ -24,7 +24,7 @@ export class AuthController {
   logoutAdmin = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const result = await this.authService.logoutAdmin();
-      res.status(200).send({ message: result });
+      res.status(200).send({ data: result });
     } catch (error) {
       console.log("🚀 ~ AuthController ~ logoutAdmin ~ error:", error);
       next(error);
