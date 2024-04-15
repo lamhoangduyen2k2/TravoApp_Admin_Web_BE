@@ -8,6 +8,7 @@ import { ServiceAccount } from "firebase-admin";
 import authRoute from "./modules/auth/auth.route";
 import userRoute from "./modules/users/user.route";
 import cors from "cors"
+import hotelRoute from "./modules/hotel/hotel.route";
 
 (async () => {
   const app = express();
@@ -17,6 +18,7 @@ import cors from "cors"
 
   app.use("/api/auth", authRoute);
   app.use("/api/admin", userRoute);
+  app.use("/api/hotel", hotelRoute);
 
   app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
     res.status(500).send({ error: error.message });

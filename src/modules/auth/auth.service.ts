@@ -20,6 +20,7 @@ export class AuthService {
         return { email: userCredential.user.email, ...token };
       })
       .catch((error) => {
+        console.log("🚀 ~ AuthService ~ loginAdmin= ~ error:", error)
         throw new Error("Email or password is incorrect!");
       });
 

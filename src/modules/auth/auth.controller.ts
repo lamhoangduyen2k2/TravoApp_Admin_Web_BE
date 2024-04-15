@@ -8,7 +8,6 @@ export class AuthController {
 
   loginAdmin = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      console.log("Request body:", req.body.email);
       const result = await this.authService.loginAdmin(
         req.body.email,
         req.body.password
