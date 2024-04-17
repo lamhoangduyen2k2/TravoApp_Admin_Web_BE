@@ -9,6 +9,7 @@ import authRoute from "./modules/auth/auth.route";
 import userRoute from "./modules/users/user.route";
 import cors from "cors"
 import hotelRoute from "./modules/hotel/hotel.route";
+import roomRoute from "./modules/room/room.route";
 
 (async () => {
   const app = express();
@@ -19,6 +20,7 @@ import hotelRoute from "./modules/hotel/hotel.route";
   app.use("/api/auth", authRoute);
   app.use("/api/admin", userRoute);
   app.use("/api/hotel", hotelRoute);
+  app.use("/api/room", roomRoute);
 
   app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
     res.status(500).send({ error: error.message });
