@@ -10,6 +10,8 @@ import userRoute from "./modules/users/user.route";
 import cors from "cors"
 import hotelRoute from "./modules/hotel/hotel.route";
 import roomRoute from "./modules/room/room.route";
+import placeRoute from "./modules/place/place.route";
+import promoRoute from "./modules/promo/promo.route";
 
 (async () => {
   const app = express();
@@ -21,6 +23,8 @@ import roomRoute from "./modules/room/room.route";
   app.use("/api/admin", userRoute);
   app.use("/api/hotel", hotelRoute);
   app.use("/api/room", roomRoute);
+  app.use("/api/place", placeRoute);
+  app.use("/api/promo", promoRoute);
 
   app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
     res.status(500).send({ error: error.message });
