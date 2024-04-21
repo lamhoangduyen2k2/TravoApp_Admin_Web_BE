@@ -43,9 +43,9 @@ export class RoomService {
     const hotel = await db.collection("hotel").doc(roomInfo.hotel).get();
     if (!hotel.exists) throw new Error("Hotel not found");
 
-    const totalRooms = await this.countTotalRoomsHotel(roomInfo.hotel);
-    if (totalRooms + roomInfo.total > hotel.data().max_room)
-      throw new Error("Total rooms exceed");
+    // const totalRooms = await this.countTotalRoomsHotel(roomInfo.hotel);
+    // if (totalRooms + roomInfo.total > hotel.data().max_room)
+    //   throw new Error("Total rooms exceed");
 
     const imgURL = await this.imageSercie.uploadImage(img);
     if (!imgURL) throw new Error("Upload image failed");
@@ -81,12 +81,12 @@ export class RoomService {
     const hotel = await db.collection("hotel").doc(room.data().hotel).get();
     if (!hotel.exists) throw new Error("Hotel not found");
 
-    const totalRooms = await this.countTotalRoomsForUpdate(
-      room.data().hotel,
-      roomInfo.id
-    );
-    if (totalRooms + roomInfo.total > hotel.data().max_room)
-      throw new Error("Total rooms exceed");
+    // const totalRooms = await this.countTotalRoomsForUpdate(
+    //   room.data().hotel,
+    //   roomInfo.id
+    // );
+    // if (totalRooms + roomInfo.total > hotel.data().max_room)
+    //   throw new Error("Total rooms exceed");
 
     let roomObj = {
       hotel: room.data().hotel,
