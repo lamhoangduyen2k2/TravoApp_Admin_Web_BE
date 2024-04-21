@@ -14,11 +14,11 @@ export class UpdateHotelDTO {
     @Expose()
     location_description: string;
   
-    @Expose()
-    max_guest: number;
+    // @Expose()
+    // max_guest: number;
   
-    @Expose()
-    max_room: number;
+    // @Expose()
+    // max_room: number;
   
     @Expose()
     name: string;

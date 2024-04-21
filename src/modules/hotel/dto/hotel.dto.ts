@@ -11,13 +11,13 @@ export class HotelDTO {
   @Expose()
   location_description: string;
 
-  @Transform((value) => value.obj.max_guest && Number(value.obj.max_guest))
-  @Expose()
-  max_guest: number;
+  // @Transform((value) => value.obj.max_guest && Number(value.obj.max_guest))
+  // @Expose()
+  // max_guest: number;
 
-  @Transform((value) => value.obj.max_room && Number(value.obj.max_room))
-  @Expose()
-  max_room: number;
+  // @Transform((value) => value.obj.max_room && Number(value.obj.max_room))
+  // @Expose()
+  // max_room: number;
 
   @Expose()
   name: string;
