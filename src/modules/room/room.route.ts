@@ -20,6 +20,11 @@ roomRoute.get(
   authMiddle.authentication,
   roomController.getRoomById
 );
+roomRoute.get(
+  "/get-rooms",
+  authMiddle.authentication,
+  roomController.getRooms
+);
 roomRoute.patch(
   "/update-room",
   imageMiddleware.upload.single("image"),

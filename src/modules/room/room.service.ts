@@ -3,6 +3,7 @@ import { ImageService } from "../image/image.service";
 import { CreateRoomDTO } from "./dto/create-room.dto";
 import { db } from "../../database/firebase-admin";
 import { UpdateRoomDTO } from "./dto/update-room.dto";
+import { Pagination } from "../../helpers/pagination";
 
 @Service()
 export class RoomService {
@@ -69,6 +70,26 @@ export class RoomService {
     if (!room.exists) throw new Error("Room not found");
 
     return { id: room.id, ...room.data() };
+  };
+
+  public getRooms = async (pagination: Pagination) => {
+    const roomList = [];
+    const rooms = await db.collection("room").get();
+    if (rooms.docs.length <= 0) throw new Error("Room not found!");
+
+    const totalPage = Math.ceil(rooms.docs.length / pagination.limit);
+    if (pagination.page > totalPage) throw new Error("Page not found!");
+
+    rooms.docs.forEach((doc, index) => {
+      if (index >= pagination.offset && index <= pagination.to) {
+        roomList.push({ id: doc.id, ...doc.data() });
+      }
+    });
+
+    return [
+      roomList,
+      { page: pagination.page, limit: pagination.limit, total: totalPage },
+    ];
   };
 
   public updateRoom = async (

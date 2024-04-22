@@ -59,7 +59,7 @@ export class UserService {
 
     flights.docs.forEach((doc, index) => {
       if (index >= pagination.offset && index <= pagination.to) {
-        flightList.push({ id: doc.id, ...doc.data() });
+        flightList.push({ id: doc.id, ...doc.data(), arrive_time: doc.data().arrive_time.toDate(), departure_time: doc.data().departure_time.toDate() });
       }
     });
 

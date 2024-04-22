@@ -27,7 +27,7 @@ export class FlightService {
         const flight = await db.collection('flight').doc(flightId).get()
         if (!flight.exists) throw new Error('Flight not found!')
 
-        return {id : flight.id, ...flight.data()} 
+        return {id : flight.id, ...flight.data(), arrive_time: flight.data().arrive_time.toDate(), departure_time: flight.data().departure_time.toDate()} 
     }
 
     public createFlight = async (flightInfo: CreateFlightDTO) => {
