@@ -26,6 +26,14 @@ export class UserService {
     ];
   };
 
+  public getUserById = async (id: string) => {
+    const user = await db.collection("user").doc(id).get();
+
+    if (!user.exists) throw new Error("User not found!");
+
+    return { id: user.id, ...user.data() };
+  }
+
   public getHotels = async (pagination: Pagination) => {
     const hotels = await db.collection("hotel").get();
     const hotelList = [];

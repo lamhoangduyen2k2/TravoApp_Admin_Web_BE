@@ -8,6 +8,7 @@ const authMiddle = Container.get(AuthMiddleware);
 const userController = Container.get(UserController);
 
 userRoute.get("/get-users", authMiddle.authentication, userController.getUsers);
+userRoute.get("/get-user-by-id", authMiddle.authentication, userController.getUserById);
 userRoute.get("/get-hotels", authMiddle.authentication, userController.getHotels);
 userRoute.get("/get-flights", authMiddle.authentication, userController.getFlights);
 userRoute.get("/get-places", authMiddle.authentication, userController.getPlaces);

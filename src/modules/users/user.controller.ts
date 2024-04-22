@@ -20,6 +20,16 @@ export class UserController {
         }
     }
 
+    public getUserById = async (req : Request, res : Response, next : NextFunction) => {
+        try {
+            const user = await this.userService.getUserById(req.query.id.toString());
+            res.status(200).json({ message: user });
+        } catch (error) {
+            console.log("🚀 ~ UserController ~ getUserById= ~ error:", error)
+            next(error);
+        }
+    }
+
     public getHotels = async (req : Request, res : Response, next : NextFunction) => {
         try {
             const pagination = Pagination.getPagination(req)
