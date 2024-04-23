@@ -21,6 +21,7 @@ export class CreateFlightDTO {
   @Expose()
   no: string;
 
+  @Transform((value) => value.obj.price && Number(value.obj.price))
   @Expose()
   price: number;
 

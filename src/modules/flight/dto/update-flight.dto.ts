@@ -1,4 +1,4 @@
-import { Exclude, Expose, plainToClass } from "class-transformer";
+import { Exclude, Expose, Transform, plainToClass } from "class-transformer";
 import { Request } from "express";
 
 export class UpdateFlightDTO {
@@ -23,6 +23,7 @@ export class UpdateFlightDTO {
   @Expose()
   no: string;
 
+  @Transform((value) => value.obj.price && Number(value.obj.price))
   @Expose()
   price: number;
 
