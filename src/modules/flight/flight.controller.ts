@@ -46,7 +46,8 @@ export class FlightController {
             const flight = await this.flightService.updateFlight(flightInfo)
             return res.status(200).json({message: flight})
         } catch (error) {
-            return next(error)
+            console.log("🚀 ~ FlightController ~ error:", error)
+            next(error)
         }
     }
 

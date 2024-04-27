@@ -4,7 +4,7 @@ import { getAuth } from "firebase-admin/auth";
 import { ServiceAccount, firestore } from "firebase-admin";
 import serviceAccountJson from "../../travoapps-b31c4-firebase-adminsdk-bexhu-1d7d257ed4.json";
 import dayjs from "dayjs";
-
+import { parse, format} from "date-fns"
 
 
 initializeApp({
@@ -13,8 +13,8 @@ initializeApp({
 });
 
 export const convertToTimestamp = (date: string) => {
-    const dateDayjs = dayjs(date).format("HH:mm:ss D/M/YYYY");
-    const dateTime = dayjs(dateDayjs).toDate();
+    const dateTime = parse(date, "HH:mm:ss d/M/yyyy", new Date());
+    console.log("🚀 ~ convertToTimestamp ~ dateTime:", dateTime)
 
     return firestore.Timestamp.fromDate(dateTime);
 };
