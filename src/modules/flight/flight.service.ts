@@ -9,16 +9,16 @@ export class FlightService {
     constructor() {
         this.seat = [
             {
-                1: [false, false, false, false],
-                2: [false, false, false, false],
-                3: [false, false, false, false]
+                1: [true, true, true, true],
+                2: [true, true, true, true],
+                3: [true, true, true, true]
             }, 
             {
-                1: [false, false, false, false, false, false],
-                2: [false, false, false, false, false, false],
-                3: [false, false, false, false, false, false],
-                4: [false, false, false, false, false, false],
-                5: [false, false, false, false, false, false],
+                1: [true, true, true, true, true, true],
+                2: [true, true, true, true, true, true],
+                3: [true, true, true, true, true, true],
+                4: [true, true, true, true, true, true],
+                5: [true, true, true, true, true, true],
             }
         ]
     }
