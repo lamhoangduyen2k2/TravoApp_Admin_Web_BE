@@ -13,6 +13,7 @@ import roomRoute from "./modules/room/room.route";
 import placeRoute from "./modules/place/place.route";
 import promoRoute from "./modules/promo/promo.route";
 import flightRoute from "./modules/flight/flight.route";
+import statisticRoute from "./modules/statistic/statistic.route";
 
 (async () => {
   const app = express();
@@ -27,6 +28,7 @@ import flightRoute from "./modules/flight/flight.route";
   app.use("/api/place", placeRoute);
   app.use("/api/promo", promoRoute);
   app.use("/api/flight", flightRoute);
+  app.use("/api/statistic", statisticRoute);
 
   app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
     res.status(500).send({ error: error.message });
